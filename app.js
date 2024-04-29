@@ -6,8 +6,10 @@ const Pin = require('./models/pin');
 const app = express();
 dbURI = "mongodb+srv://adminator:C8R51j2ICoqhYzNV@cluster0.bgtq0sv.mongodb.net/PinBoard?retryWrites=true&w=majority&appName=Cluster0";
 
+const HTTP_PORT = process.env.PORT || 8080;
+
 mongoose.connect(dbURI)
-  .then(result => app.listen(8080))
+  .then(result => app.listen(HTTP_PORT))
   .catch(err => console.log(err));
 
 app.set('view engine', 'ejs');
