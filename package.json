@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "miniflare": "^3.20240620.0",
+    "model": "^6.0.1",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2",
+    "netlify-cli": "^17.23.1",
+    "netlify-lambda": "^2.0.16",
+    "serverless-http": "^3.2.0"
+  },
+  "name": "pin-board",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

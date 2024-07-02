@@ -1,0 +1,31 @@
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+
+    <body>
+        <%- include("./partials/navbar.ejs") %>
+
+            <div class="base">
+                <form action="/pins" method="POST">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Pin Title:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput"
+                        placeholder="Pin Title goes here" required name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Pin Creator:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput"
+                        placeholder="Pin Creator goes here" required name="creator">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Pin Body:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Pin Body goes here" style="height: 25%;" required name="body">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <br>
+                <br>
+                </form>
+            </div>
+            <%- include("./partials/footer.ejs") %>
+    </body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/header.ejs") %>
+</head>
+<body>
+    <%- include("./partials/navbar.ejs") %>
+    
+    <div class="base">
+
+        <h1>Welcome to your very own virtual Pin Board...</h1>
+        
+        <% if (pins.length > 0) { %>
+            <% pins.forEach(pins => { %>
+      
+              <div class="card text-tertiary-emphasis bg-body-tertiary border border-tertiary rounded-3 mb-3" style="max-width: 90%; border: solid black 2px;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= pins.title %></h5>
+                  <p class="card-text"><%= pins.creator %></p>
+                  <p class="card-text"><%= pins.body %></p>
+                  <a class="delete btn btn-danger" data-doc="<%= pins._id %>">Delete</a>
+                </div>
+            </div>
+      
+            <% }) %>
+          <% } else { %>
+            <p>There are no pins to display...</p>
+          <% } %>
+        
+    </div>
+    <%- include("./partials/footer.ejs") %>
+    <script>
+        const trashcan = document.querySelector('a.delete');
+    
+        trashcan.addEventListener('click', (e) => {
+          const endpoint = `/pins/${trashcan.dataset.doc}`;
+    
+          fetch(endpoint, {
+            method: 'DELETE',
+          })
+          .then(response => response.json())
+          .then(data => window.location.href = data.redirect)
+          .catch(err => console.log(err));
+        });
+        
+      </script>
+</body>
+</html>
