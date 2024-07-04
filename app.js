@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require('path');
 const Pin = require('./models/pin.js');
 
 const app = express();
@@ -16,6 +17,8 @@ mongoose.connect(process.env.dbURI)
   }).catch(function (err) {
     console.log(`unable to start server: ${err}`);
   });
+
+app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
 
